@@ -1,0 +1,30 @@
+[
+  {
+    "name": "index",
+    "url": "https://icancclearynow.com"
+  },
+  {
+    "name": "404",
+    "url": "https://icancclearynow.com"
+  },
+  {
+    "name": "blog",
+    "url": "https://icancclearynow.com/blog"
+  },
+  {
+    "name": "cv",
+    "url": "https://icancclearynow.com"
+  },
+  {
+    "name": "gh",
+    "url": "https://github.com/icancclearynow"
+  },
+  {
+    "name": "gr",
+    "url": "https://github.com/icancclearynow?tab=repositories"
+  },
+  {
+    "name": "ls",
+    "url": "https://github.com/icancclearynow/maininabox-url-shortener/edit/main/links.json"
+  }
+]

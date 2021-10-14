@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Build Links
+      run: python main.py
+
+    - name: Setup Connection
+      run: |
+        mkdir -p $HOME/.ssh
+        chmod 0700 $HOME/.ssh
+        echo "$SSH_KEY" > ~/.ssh/id_rsa
+        chmod 700 ~/.ssh/id_rsa
+        eval `ssh-agent`
+        ssh-add ~/.ssh/id_rsa
+      env:
+        SSH_KEY: ${{secrets.ACTIONS_DEPLOY_KEY}}
+
+    - name: Deploy to Server
+      run: rsync -e "ssh -o StrictHostKeyChecking=no" -a dist/ root@box.iancleary.me:/home/user-data/www/default

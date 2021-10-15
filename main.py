@@ -3,7 +3,7 @@ import json
 import os
 import shutil
 
-EXISTING_MAIL_IN_A_BOX_ROUTES = {"admin", "cloud"}
+EXISTING_MAIL_IN_A_BOX_ROUTES = {"admin", "cloud", "mail"}
 
 def remove_mail_in_a_box_internal_links(links):
     # remove protected links
